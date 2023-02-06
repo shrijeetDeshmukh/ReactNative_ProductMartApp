@@ -1,5 +1,8 @@
+import { PRODUCT_API_URL } from "./constant";
+
+
 export const getProducts = async () => {
-    const response = await fetch('https://mocki.io/v1/d46dc365-f752-46ee-b0cd-c136aec38e00');
+    const response = await fetch(PRODUCT_API_URL);
     const json = await response.json();
     return json;
 }

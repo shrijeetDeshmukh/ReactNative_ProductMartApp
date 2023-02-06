@@ -13,3 +13,4 @@ export const USER_EMAIL="Enter your email";
 export const USER_PASSWORD="Enter your password";
 export const LOGIN_BUTTON="Login";
 export const PRICE_TEXT="Price";
+export const PRODUCT_API_URL="https://mocki.io/v1/d46dc365-f752-46ee-b0cd-c136aec38e00"
