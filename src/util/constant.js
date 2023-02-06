@@ -1,0 +1,15 @@
+export const ADD_TO_CART="Add_To_Cart";
+export const REMOVE_CART="Remove_Cart";
+export const USER_DETAILS="user_data";
+export const PRODUCT_ADDED_STRING="Product Added to cart";
+export const APP_NAME="Product Mart"
+export const PRODUCT_ADDED_ALREADY_STRING="Product Already Added to cart";
+export const ADD_ITEM_TO_CART="Add to cart";
+export const ITEM_DETAIL="Detail";
+export const DELETE_ITEM_FROM_CART="Remove item";
+export const NO_PRODUCTS_CART="No Products added to cart";
+export const WELCOME_MSG="Welcome";
+export const USER_EMAIL="Enter your email";
+export const USER_PASSWORD="Enter your password";
+export const LOGIN_BUTTON="Login";
+export const PRICE_TEXT="Price";
