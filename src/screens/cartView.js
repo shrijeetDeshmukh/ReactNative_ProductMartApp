@@ -47,6 +47,7 @@ const styles = StyleSheet.create({
     },
 
     totalFont: {
-        fontSize: 22
+        fontSize: 22,
+        color: 'rgb(10, 60, 67)',
     }
 })

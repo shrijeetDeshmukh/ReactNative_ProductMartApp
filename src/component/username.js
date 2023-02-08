@@ -41,7 +41,8 @@ const styles = StyleSheet.create({
         marginVertical:4
     },
     logoutText:{
-        fontSize:20
+        fontSize:20,
+        color: 'rgb(10, 60, 67)',
     }
 })
 export default UsernameComponent;
