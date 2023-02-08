@@ -1,14 +1,13 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-native';
 import { useValidation } from 'react-native-form-validator';
-import { storeData } from '../storeage/asyncStore';
+import { storeData } from '../storage/asyncStore';
 import { Keyboard } from 'react-native'
 import LodingSpinner from '../component/activityLoader';
 import AppLogo from '../component/appLogo';
 import { USER_EMAIL, USER_PASSWORD, LOGIN_BUTTON } from '../util/constant';
 
 const LoginScreen = ({ navigation }) => {
-
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [loading, setLoading] = useState(false);

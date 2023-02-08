@@ -9,6 +9,7 @@ import { useUserData } from "../hooks/userName";
 
 const ProductList = ({ navigation }) => {
     const { products, loading } = useProductList();
+    console.log('PRODUCTS---',products);
     const { email } = useUserData();
     useEffect(() => {
         navigation.setOptions({
@@ -37,7 +38,7 @@ const ProductList = ({ navigation }) => {
         <SafeAreaView style={{ flex: 1 }}>
             <ScrollView>
                 <View>
-                    <UsernameComponent username={email}></UsernameComponent>
+                    <UsernameComponent username={email} navigation={navigation}></UsernameComponent>
                     <View>
                         <ListViewComponent showCartButton={true} productSelection={productSelection} products={products} />
                     </View>

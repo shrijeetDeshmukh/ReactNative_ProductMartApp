@@ -6,7 +6,7 @@ import {useUserData} from '../hooks/userName';
 import {useProductDetails} from '../hooks/product_detail';
 import { PRICE_TEXT } from "../util/constant";
 
-const ProductDetail = ({ route }) => {
+const ProductDetail = ({ route,navigation }) => {
     const {email}=useUserData(route);
     const [playing, setPlaying] = useState(false);
     const {productDetObj}=useProductDetails(route);
@@ -14,7 +14,7 @@ const ProductDetail = ({ route }) => {
         <ScrollView>
         <View>
             <View>
-                <UsernameComponent username={email}></UsernameComponent>
+                <UsernameComponent navigation={navigation} username={email}></UsernameComponent>
             </View>
             <View style={styles.productDescContainer}>
                 <View style={styles.productInfoContainer}>

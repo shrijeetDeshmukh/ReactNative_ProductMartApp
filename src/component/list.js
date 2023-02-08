@@ -1,8 +1,9 @@
 import React from "react";
 import { Text, View, StyleSheet, TouchableOpacity, Image } from "react-native";
 import { useDispatch } from "react-redux";
-import { addtoCart, deleteCart } from "../redux/action";
-import { DELETE_ITEM_FROM_CART,ADD_ITEM_TO_CART,ITEM_DETAIL,NO_PRODUCTS_CART,PRICE_TEXT } from "../util/constant";
+import { addtoCart, deleteCart, removeCount } from "../redux/action";
+
+import { DELETE_ITEM_FROM_CART, ADD_ITEM_TO_CART, ITEM_DETAIL, NO_PRODUCTS_CART, PRICE_TEXT, ADD_ITEM_PLUS, ADD_ITEM_MINUS, REMOVE_CART } from "../util/constant";
 
 /* Show list of products and added products to cartData.  */
 const ListViewComponent = ({ products, productSelection, showCartButton }) => {
@@ -14,7 +15,7 @@ const ListViewComponent = ({ products, productSelection, showCartButton }) => {
                 products.map((item) =>
                 (<View key={item.id} style={styles.listViewContainer} >
                     <View style={{ flexDirection: 'row', marginHorizontal: 10, marginVertical: 5 }}>
-                        <Image style={styles.imageStyle} source={require('../../assets/icon/thumb.png')} />
+                        <Image style={styles.imageStyle} source={require('../../assets/img/asus.jpg')} />
                         {console.log(item.productName)}
                         <View style={{ flexDirection: 'column', margin: 10 }}>
                             <Text style={styles.productName}>{item.productName}</Text>
@@ -28,16 +29,26 @@ const ListViewComponent = ({ products, productSelection, showCartButton }) => {
                                 <Text style={styles.buttonSize}>{ITEM_DETAIL}</Text>
                             </TouchableOpacity>
                             <View style={{ marginLeft: 15 }}></View>
-                            <TouchableOpacity onPress={() => dispatch(addtoCart(item))} style={styles.buttonView}>
+                            <TouchableOpacity onPress={() => { dispatch(addtoCart(item)) }} style={styles.buttonView}>
                                 <Text style={styles.buttonSize}>{ADD_ITEM_TO_CART}</Text>
                             </TouchableOpacity>
                         </View>
                     ) : (
                         <View style={styles.actionButtonsContainer}>
+                            <TouchableOpacity onPress={() => { dispatch(addtoCart(item)) }}style={styles.buttonViewCount}>
+                                <Text style={styles.buttonSize}>{ADD_ITEM_PLUS}</Text>
+                            </TouchableOpacity>
+                            <View style={{ marginLeft: 15 }}></View>
+                            <View>
+                                <Text style={styles.countText}>{item.count}</Text>
+                            </View>
+                            <TouchableOpacity onPress={() => dispatch(removeCount(item))} style={styles.buttonViewCount}>
+                                <Text style={styles.buttonSize}>{ADD_ITEM_MINUS}</Text>
+                            </TouchableOpacity>
+                            <View style={{paddingRight:15}}></View>
                             <TouchableOpacity onPress={() => dispatch(deleteCart(item))} style={styles.buttonView}>
                                 <Text style={styles.buttonSize}>{DELETE_ITEM_FROM_CART}</Text>
                             </TouchableOpacity>
-                            <View style={{ marginLeft: 15 }}></View>
                         </View>
                     )
                     }
@@ -57,13 +68,13 @@ const styles = StyleSheet.create({
         borderRadius: 4,
     },
     imageStyle: {
-        width: 80, height: 80,borderRadius:5
+        width: 80, height: 80, borderRadius: 5
     },
     productName: {
-        paddingLeft: 10, fontSize: 20, fontWeight: 'bold',color:'rgb(10, 60, 67)',
+        paddingLeft: 10, fontSize: 20, fontWeight: 'bold', color: 'rgb(10, 60, 67)',
     },
     productDecs: {
-        paddingLeft: 10, fontSize: 16, fontWeight: '600',color:'rgb(10, 60, 67)',
+        paddingLeft: 10, fontSize: 16, fontWeight: '600', color: 'rgb(10, 60, 67)',
     },
     actionButtonsContainer: {
         flexDirection: 'row', marginHorizontal: 10, marginVertical: 5, paddingLeft: 90
@@ -71,8 +82,14 @@ const styles = StyleSheet.create({
     buttonView: {
         backgroundColor: 'rgb(13, 79, 89)', borderRadius: 3, minWidth: 110, minHeight: 25
     },
+    buttonViewCount: {
+        backgroundColor: 'rgb(13, 79, 89)', borderRadius: 3, minWidth: 30, minHeight: 25
+    },
     buttonSize: {
-        fontSize: 18, alignSelf: 'center', color: '#fff'
+        fontSize: 18, alignSelf: 'center', color: '#fff',
+    },
+    countText: {
+        fontSize: 18, alignSelf: 'center', color: '#fff',paddingRight:10
     },
     noProductStyle: {
         alignItems: 'center',

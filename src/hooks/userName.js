@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getData } from '../storeage/asyncStore';
+import { getData } from '../storage/asyncStore';
 export const useUserData = () => {
     const [email, setEmail] = useState('');
     useEffect(() => {
