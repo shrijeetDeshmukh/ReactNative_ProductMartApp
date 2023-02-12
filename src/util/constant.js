@@ -19,3 +19,4 @@ export const REMOVE_PRODUCT_COUNT = "Remove_count";
 export const ADD_ITEM_PLUS="+";
 export const ADD_ITEM_MINUS="-";
 export const TOTAL_AMOUNT_TEXT="Total :";
+export const SAVE_USER_SESSION="IsLoggedIn"

@@ -1,15 +1,18 @@
 import React from "react";
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
+import { useDispatch } from "react-redux";
+import { setSignOut } from "../auth/authSlice";
 import { removeData } from "../storage/asyncStore";
 import { WELCOME_MSG } from "../util/constant";
 
 /*
 Display username in all screens */
-const UsernameComponent = ({ username,navigation }) => {
+const UsernameComponent = ({ username }) => {
+    const dispatch=useDispatch();
     return (
         <View style={styles.usernameContainer}>
             <Text style={styles.fontName}>{WELCOME_MSG} , {username}</Text><View style={{ height: 0 }}></View>
-          <TouchableOpacity onPress={()=>removeData(navigation)}>
+          <TouchableOpacity onPress={()=>dispatch(setSignOut())}>
             <View style={styles.logoutView}>
                 <Text style={styles.logoutText}>Logout</Text>
             </View>

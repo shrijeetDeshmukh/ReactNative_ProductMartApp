@@ -21,7 +21,7 @@ const getUniqueProd = (count) => {
     return unique;
 }
 const CartView = ({navigation}) => {
-    const cartDataView = useSelector((state) => state);
+    const cartDataView = useSelector((state) => state.cartData);
     const cartFinal = getUniqueProd(cartDataView);
     const { totalvalue } = useProductValue(cartFinal);
     const { email } = useUserData();
